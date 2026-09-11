@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#090b13" />
     <meta
       name="description"
-      content="Compare Classic Paladin GBoK, Rank 5 Consecration and Rank 8 Judgement threat."
+      content="Compare Classic Paladin GBoK, Rank 5 Consecration and Rank 8 Judgement threat with MoonMethod."
     />
-    <title>MoonMethod Threat Tools</title>
+    <title>Paladin Threat Lab · MoonMethod</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -25,37 +25,27 @@
         </span>
         <span>
           <strong>MoonMethod</strong>
-          <small>Paladin Threat Tools</small>
+          <small>Paladin Threat Lab</small>
         </span>
       </a>
       <div class="status-pill"><span></span> Classic Era · Level 60</div>
     </header>
 
     <main id="top">
-      <section class="hero wrap" aria-labelledby="hero-title">
-        <div class="eyebrow">GBoK · Consecration · Judgement</div>
-        <h1 id="hero-title">MoonMethod Threat Tools</h1>
-        <p>
-          Compare GBoK with Rank 5 Consecration and Rank 8 Judgement as your spell power,
-          class count and active enemies change.
-        </p>
-        <a class="jump-link" href="#calculator">Open calculator <span aria-hidden="true">↓</span></a>
-      </section>
-
       <section class="calculator-section wrap" id="calculator" aria-labelledby="calculator-title">
         <div class="section-heading">
           <div>
-            <span class="section-kicker"></span>
-            <h2 id="calculator-title"></h2>
+            <span class="section-kicker">Interactive calculator</span>
+            <h2 id="calculator-title">One input change. Three methods compared.</h2>
           </div>
           <div class="preset-group" aria-label="Encounter presets">
             <button class="preset-button is-active" type="button" data-preset="hakkar" aria-pressed="true">
-              <span>20-Player</span>
-              Hakkar Example
+              <span>20-player</span>
+              Hakkar style
             </button>
             <button class="preset-button" type="button" data-preset="flamegor" aria-pressed="false">
-              <span>40-Player</span>
-              Firemaw Example
+              <span>40-player</span>
+              Flamegor style
             </button>
           </div>
         </div>
@@ -69,7 +59,7 @@
 
             <div class="spell-power-field">
               <div class="label-row">
-                <label for="spell-power">Spell Power</label>
+                <label for="spell-power">Spell power</label>
                 <span class="dial-range">0–800 SP</span>
               </div>
               <div class="dial-row">
@@ -178,42 +168,11 @@
           </div>
         </div>
       </section>
-
-      <section class="method-section wrap" aria-labelledby="method-title">
-        <div class="method-copy">
-          <span class="section-kicker">Read the pull</span>
-          <h2 id="method-title">Raid size changes which stat gets to lead.</h2>
-          <p>
-            Spell power strengthens Consecration and Judgement. GBoK scales with class count—but its threat is split across active enemies.
-          </p>
-        </div>
-        <div class="method-cards">
-          <article>
-            <span class="method-icon method-icon--good" aria-hidden="true">↑</span>
-            <div>
-              <h3>Use it when</h3>
-              <p>A single boss is active and one class is stacked. Eight Warriors make one GBoK worth 912 threat to that boss.</p>
-            </div>
-          </article>
-          <article>
-            <span class="method-icon method-icon--warning" aria-hidden="true">!</span>
-            <div>
-              <h3>Think before casting</h3>
-              <p>Adds are live, crowd control could break, or global threat may pull enemies you never intended to tank.</p>
-            </div>
-          </article>
-        </div>
-        <div class="formula-strip">
-          <span>Comparison</span>
-          <strong>GBoK, full Rank 5 Consecration, and Rank 8 Judgement of Righteousness</strong>
-          <small>All values include the selected Righteous Fury multiplier.</small>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer wrap">
-      <span>MoonMethod · Paladin Raid Tanking.</span>
-      <span>For Classic Era mechanics.</span>
+      <span>MoonMethod · Paladin raid tanking, explained from experience.</span>
+      <span>For Classic Era level 60 mechanics.</span>
     </footer>
 
     <script type="module" src="app.mjs"></script>
