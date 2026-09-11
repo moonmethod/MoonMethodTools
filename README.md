@@ -1,17 +1,14 @@
-# MoonMethod Paladin Threat Lab
+# MoonMethod Paladin Threat Tools
 
-An editable, dependency-free Classic Era Paladin threat calculator. It compares:
-
+It compares:
 - Greater Blessing of Kings threat per active enemy
 - Rank 5 Consecration threat per enemy over its full duration
 - Rank 8 Judgement of Righteousness threat on its target
 
-The Hakkar-style preset uses four buffed players and 200 spell power. The Flamegor-style preset uses eight buffed Warriors and 200 spell power.
 
 ## Edit it
 
 The whole site is four files:
-
 - `index.html` — page content and structure
 - `styles.css` — colours, layout and visual design
 - `app.mjs` — controls and interaction behaviour
@@ -26,7 +23,6 @@ python3 -m http.server 8000
 Then visit `http://localhost:8000`.
 
 ## Publish with GitHub Pages
-
 1. Put the files on the repository's `main` branch.
 2. Open **Settings → Pages** in GitHub.
 3. Under **Build and deployment**, select **Deploy from a branch**.
