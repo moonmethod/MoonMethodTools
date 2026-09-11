@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b13" />
+    <meta
+      name="description"
+      content="Compare Classic Paladin GBoK, Rank 5 Consecration and Rank 8 Judgement threat with MoonMethod."
+    />
+    <title>Paladin Threat Lab · MoonMethod</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow--one" aria-hidden="true"></div>
+    <div class="page-glow page-glow--two" aria-hidden="true"></div>
+
+    <header class="site-header wrap">
+      <a class="brand" href="#top" aria-label="MoonMethod Paladin Threat Lab">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 44 44" role="img">
+            <path d="M29.6 7.8A15.8 15.8 0 1 0 36.2 32 16.4 16.4 0 0 1 29.6 7.8Z" />
+            <path class="brand-star" d="m32.7 9.4 1.1 2.5 2.5 1.1-2.5 1.1-1.1 2.5-1.1-2.5-2.5-1.1 2.5-1.1 1.1-2.5Z" />
+          </svg>
+        </span>
+        <span>
+          <strong>MoonMethod</strong>
+          <small>Paladin Threat Lab</small>
+        </span>
+      </a>
+      <div class="status-pill"><span></span> Classic Era · Level 60</div>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="eyebrow">GBoK · Consecration · Judgement</div>
+        <h1 id="hero-title">See which threat method leads.</h1>
+        <p>
+          Compare GBoK with Rank 5 Consecration and Rank 8 Judgement as your spell power,
+          class count and active enemies change.
+        </p>
+        <a class="jump-link" href="#calculator">Open calculator <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="calculator-section wrap" id="calculator" aria-labelledby="calculator-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Interactive calculator</span>
+            <h2 id="calculator-title">One input change. Three methods compared.</h2>
+          </div>
+          <div class="preset-group" aria-label="Encounter presets">
+            <button class="preset-button is-active" type="button" data-preset="hakkar" aria-pressed="true">
+              <span>20-player</span>
+              Hakkar style
+            </button>
+            <button class="preset-button" type="button" data-preset="flamegor" aria-pressed="false">
+              <span>40-player</span>
+              Flamegor style
+            </button>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <form class="control-panel" aria-label="Threat inputs" onsubmit="return false">
+            <div class="control-heading">
+              <span>Inputs</span>
+              <button class="reset-button" id="reset-button" type="button">Reset</button>
+            </div>
+
+            <div class="spell-power-field">
+              <div class="label-row">
+                <label for="spell-power">Spell power</label>
+                <span class="dial-range">0–800 SP</span>
+              </div>
+              <div class="dial-row">
+                <button class="dial-step" id="spell-power-minus" type="button" aria-label="Reduce spell power by 10">−</button>
+                <div class="spell-dial" id="spell-dial" aria-hidden="true">
+                  <div class="spell-dial__inner">
+                    <output id="spell-power-output" for="spell-power">200</output>
+                    <span>SP</span>
+                  </div>
+                </div>
+                <button class="dial-step" id="spell-power-plus" type="button" aria-label="Increase spell power by 10">+</button>
+              </div>
+              <input type="range" id="spell-power" min="0" max="800" value="200" step="10" />
+              <div class="range-scale"><span>0</span><span>400</span><span>800</span></div>
+              <p>Changes Consecration and Judgement. GBoK does not scale with spell power.</p>
+            </div>
+
+            <div class="range-field">
+              <div class="label-row">
+                <label for="class-members">Players of the buffed class</label>
+                <output id="class-members-output" for="class-members">4</output>
+              </div>
+              <input type="range" id="class-members" min="1" max="15" value="4" step="1" />
+              <div class="range-scale"><span>1</span><span>15</span></div>
+              <p>Every eligible player reached by the Greater Blessing contributes threat.</p>
+            </div>
+
+            <div class="range-field">
+              <div class="label-row">
+                <label for="active-enemies">Active enemies in combat</label>
+                <output id="active-enemies-output" for="active-enemies">1</output>
+              </div>
+              <input type="range" id="active-enemies" min="1" max="20" value="1" step="1" />
+              <div class="range-scale"><span>1</span><span>20</span></div>
+              <p>Total buff threat is divided evenly between them.</p>
+            </div>
+
+            <label class="toggle-row" for="righteous-fury">
+              <span>
+                <strong>Improved Righteous Fury</strong>
+                <small>+90% Holy threat</small>
+              </span>
+              <input type="checkbox" id="righteous-fury" checked />
+              <span class="toggle" aria-hidden="true"><span></span></span>
+            </label>
+          </form>
+
+          <div class="result-panel" aria-live="polite">
+            <div class="result-topline">
+              <span class="result-label">Current leader</span>
+              <span class="confidence"><span aria-hidden="true">✓</span> Per enemy · per use</span>
+            </div>
+
+            <div class="hero-result hero-result--leader">
+              <span class="leader-method" id="leader-method">Consecration</span>
+              <strong id="leader-threat">857</strong>
+              <span>threat <em>per enemy</em></span>
+            </div>
+
+            <div class="method-race" id="method-race">
+              <article class="race-row" data-method="kings">
+                <div class="race-heading">
+                  <span><b>GBoK</b><small id="kings-detail">4 players · 1 enemy</small></span>
+                  <strong id="kings-threat">456</strong>
+                </div>
+                <div class="race-track"><span id="kings-bar"></span></div>
+              </article>
+              <article class="race-row is-leading" data-method="consecration">
+                <div class="race-heading">
+                  <span><b>Consecration</b><small>Rank 5 · full duration</small></span>
+                  <strong id="consecration-threat">857</strong>
+                </div>
+                <div class="race-track"><span id="consecration-bar"></span></div>
+              </article>
+              <article class="race-row" data-method="judgement">
+                <div class="race-heading">
+                  <span><b>Judgement</b><small>Rank 8 · Seal of Righteousness</small></span>
+                  <strong id="judgement-threat">513</strong>
+                </div>
+                <div class="race-track"><span id="judgement-bar"></span></div>
+              </article>
+            </div>
+
+            <div class="crossover-card">
+              <span class="crossover-icon" aria-hidden="true">⌁</span>
+              <div>
+                <span>Lead analysis</span>
+                <strong id="lead-analysis">Consecration leads GBoK by 401 threat.</strong>
+                <small id="crossover-analysis">Judgement passes GBoK from 140 spell power.</small>
+              </div>
+            </div>
+
+            <details class="formula-details">
+              <summary>Show calculations</summary>
+              <div class="formula-grid">
+                <div><span>GBoK</span><code id="kings-equation">(4 × 60 × 1.9) ÷ 1</code></div>
+                <div><span>Consecration R5</span><code id="consecration-equation">(384 + 0.336 × 200) × 1.9</code></div>
+                <div><span>Judgement R8</span><code id="judgement-equation">(170 + 0.5 × 200) × 1.9</code></div>
+              </div>
+            </details>
+
+            <p class="encounter-note" id="encounter-note">
+              <span aria-hidden="true">◆</span>
+              Hakkar style at 200 SP: Consecration leads at 857 threat, ahead of Judgement at 513 and GBoK at 456.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-section wrap" aria-labelledby="method-title">
+        <div class="method-copy">
+          <span class="section-kicker">Read the pull</span>
+          <h2 id="method-title">Raid size changes which stat gets to lead.</h2>
+          <p>
+            Spell power strengthens Consecration and Judgement. GBoK scales with class count—but its threat is split across active enemies.
+          </p>
+        </div>
+        <div class="method-cards">
+          <article>
+            <span class="method-icon method-icon--good" aria-hidden="true">↑</span>
+            <div>
+              <h3>Use it when</h3>
+              <p>A single boss is active and one class is stacked. Eight Warriors make one GBoK worth 912 threat to that boss.</p>
+            </div>
+          </article>
+          <article>
+            <span class="method-icon method-icon--warning" aria-hidden="true">!</span>
+            <div>
+              <h3>Think before casting</h3>
+              <p>Adds are live, crowd control could break, or global threat may pull enemies you never intended to tank.</p>
+            </div>
+          </article>
+        </div>
+        <div class="formula-strip">
+          <span>Comparison</span>
+          <strong>GBoK, full Rank 5 Consecration, and Rank 8 Judgement of Righteousness</strong>
+          <small>All values include the selected Righteous Fury multiplier.</small>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <span>MoonMethod · Paladin raid tanking, explained from experience.</span>
+      <span>For Classic Era level 60 mechanics.</span>
+    </footer>
+
+    <script type="module" src="app.mjs"></script>
+  </body>
+</html>
